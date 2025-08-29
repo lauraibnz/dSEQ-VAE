@@ -7,7 +7,7 @@ wandb:
   mode: 'online'
 
 wandb_watch:
-  log: None
+  log: "gradients"
   log_freq: 100
 
 lr_monitor:

@@ -6,7 +6,8 @@ random_seed: 42
 pl_trainer:
   fast_dev_run: False
   overfit_batches: 0
-  gpus: 1
+  accelerator: "gpu"
+  devices: 1
   max_epochs: 4000 
   gradient_clip_val: 0.0
 

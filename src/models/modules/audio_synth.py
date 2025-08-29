@@ -14,7 +14,8 @@ class GflFromMel(torch.nn.Module):
             n_stft=dataset_module.NFFT // 2 + 1,
             n_mels=dataset_module.NMEL,
             sample_rate=dataset_module.SR,
-            tolerance_loss=1e-5, max_iter=5000
+            f_min=0.0,
+            f_max=dataset_module.SR // 2
         )
         self.gfl = GriffinLim(
             n_fft=dataset_module.NFFT,

@@ -272,15 +272,15 @@ class DsaeBase(pl.LightningModule, ABC):
         outputs = self._run_step(batch, 'test')
         return outputs
 
-    def training_epoch_end(self, outputs):
-        if self.current_epoch % self.log_interval == 0:
-            self._epoch_end(outputs, 'train')
+    def on_train_epoch_end(self):
+        # Disable complex logging for now - basic metrics still logged in _run_step
+        pass
 
-    def validation_epoch_end(self, outputs):
-        if self.current_epoch % self.log_interval == 0:
-            self._epoch_end(outputs, 'val')
+    def on_validation_epoch_end(self):
+        # Disable complex logging for now - basic metrics still logged in _run_step
+        pass
 
-    def test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         # We have two DLs during the eval phase,
         # hence an output list of length two
         assert len(outputs) == 2

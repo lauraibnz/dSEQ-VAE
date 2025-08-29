@@ -1,0 +1,16 @@
+_target_: src.datasets.dataloader.GeneralDataLoader
+datasets:
+  train:
+    _target_: src.datasets.slakh.Slakh
+    path_to_data: slakh_dataset
+    split: 'train'
+    validation_size: 0.1
+    random_seed: 42
+  val:
+    _target_: src.datasets.slakh.Slakh
+    path_to_data: slakh_dataset
+    split: 'val'
+    validation_size: 0.1
+    random_seed: 42
+num_workers: 0
+batch_size: 128 

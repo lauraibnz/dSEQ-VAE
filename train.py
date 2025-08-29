@@ -66,7 +66,8 @@ def run(cfg: DictConfig) -> None:
             f"Forcing debugger friendly configuration!"
         )
         # Debuggers don't like GPUs nor multiprocessing
-        cfg.train.pl_trainer.gpus = 0
+        cfg.train.pl_trainer.accelerator = "cpu"
+        cfg.train.pl_trainer.devices = None
         cfg.data.num_workers = 0
 
         # Switch wandb mode to offline to prevent online logging
